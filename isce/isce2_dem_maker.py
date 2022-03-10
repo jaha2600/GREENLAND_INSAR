@@ -18,38 +18,8 @@ import isce
 from shapely.geometry import box
 import numpy as np
 
-#jh added parser march 10th 2022
-import os, subprocess
-import argparse
-def getparser():
-    parser = argparse.ArgumentParser(description='Create DEM for ISCE2')
-    #make sure you hardcode the path or use $PWD/ in the commandline infront of file
-    parser.add_argument('DEM_NAME', type = str, help = 'pick from srtm_v3, nasadem, glo_30, 3dep, ned1')
-    parser.add_argument('LONMIN', type=str, help = 'format is lonmin latmin lonmax latmin')
-    parser.add_argument('LATMIN', type=str)
-    parser.add_argument('LONMAX', type=str)
-    parser.add_argument('LATMIN', type=str) 
-    parser.add_argument('--gtif', action='store_true',help='Optional Flag will save geotiff version for viewing')
-    return parser
-
-parser = getparser()
-args = parser.parse_args()
-
-dem_name = args.DEM_NAME 
-lonmin = args.LONMIN 
-latmin = args.LATMIN 
-lonmax = args.LONMAX 
-latmin = args.LATMIN
-#print(lonmin, latmin, lonmax, latmin)
-#print(dem_name)
-bounds = [float(lonmin), float(latmin), float(lonmax), float(latmin)]
-#print(bounds)
-# %%
-
-# if parser not working comment out parser section and just add dem name and bounds in below
-
-#dem_name = 'glo_30'
-#bounds = [-169.0, 53., -167.0, 54.]
+dem_name = 'glo_30'
+bounds = [-169.0, 53., -167.0, 54.]
 
 # %%
 # functions to create dem
@@ -122,21 +92,6 @@ def download_dem_for_isce2(extent: list,
     full_res_dem_xml = tag_dem_xml_as_ellipsoidal(full_res_dem_path)
 
     fix_image_xml(full_res_dem_xml)
-    # lines 128 - 138 added by JH March 2022 - optional flag included to save out a tif copy for viewing.
-    # if this is causing problems then delete if else loop (keep the return below as thats original)
-    # if removing parser and adding in dem name and bounds directly in script this will need to be commented out as refs parser variable --gtif
-    if args.gtif:
-        print('-gtif flag used - saving geotiff copy')
-        full_res_dem_gtif = dem_dir/f'{dem_name}.dem.wgs84.tif'
-        # optional save out geotiff
-        dem_profile['nodata'] = None
-        dem_profile['driver'] = 'GTiff'
-        with rasterio.open(full_res_dem_gtif, 'w', **dem_profile) as ds2:
-            ds2.write(dem_array,1)
-        print('Code Complete')
-    else:
-        print('Code Complete')
-
 
     return full_res_dem_xml
 
