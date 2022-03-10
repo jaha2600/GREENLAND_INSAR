@@ -19,8 +19,9 @@ from shapely.geometry import box
 import numpy as np
 
 dem_name = 'glo_30'
-bounds = [-169.0, 53., -167.0, 54.]
-
+#[lonmin, latmin, lonmax, latmin]
+#bounds = [-169.0, 53., -167.0, 54.]
+bounds = [-55., 64., -49., 68.]
 # %%
 # functions to create dem
 def tag_dem_xml_as_ellipsoidal(dem_path: Path) -> str:
