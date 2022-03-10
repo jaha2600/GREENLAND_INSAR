@@ -18,6 +18,7 @@ import isce
 from shapely.geometry import box
 import numpy as np
 
+# dem name options ['srtm_v3', 'nasadem', 'glo_30', '3dep', 'ned1']
 dem_name = 'glo_30'
 #[lonmin, latmin, lonmax, latmin]
 #bounds = [-169.0, 53., -167.0, 54.]
