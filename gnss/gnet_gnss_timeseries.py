@@ -4,7 +4,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 #%%
 # import data
-ds = pd.read_csv('/Users/jasminehansen/Documents/Colorado/PhD_Work/2022/Greenland/DATASETS/GNET/KELY_NEU.csv')
+ds = pd.read_csv('/data/GREENLAND/2022/GNET_TIMESERIES/KELY_NEU.csv')
 # %%
 plt.scatter(ds['Time'], ds['Up'])
 # %%
