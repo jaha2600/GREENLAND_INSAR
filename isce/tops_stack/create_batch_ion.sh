@@ -17,12 +17,12 @@ sed -i 's/run_24_invertIon \&\&/run_24_invertIon/' batch.sh
 
 # try and insert the step number between each line
 #get number of lines in batch file 
-lines=$(cat batch.sh | wc -l)
-for f in lines; do
+#lines=$(cat batch.sh | wc -l)
+#for f in lines; do
 
-sed -i '${f}i This is Line ${f}' batch.sh
+#sed -i '${f}i This is Line ${f}' batch.sh
 
-done
+#done
 
 # give permissions to all shell scripts
 chmod +x *
