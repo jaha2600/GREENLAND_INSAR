@@ -12,8 +12,8 @@ import argparse
 def getparser():
     parser = argparse.ArgumentParser(description='Extract geocoded timeseries steps')
     #make sure you hardcode the path or use $PWD/ in the commandline infront of file
-    parser.add_argument('directory', type = str, help = 'dir with location of  geo_timeseries_ERA5_ramp_demErr.h5')
-    
+    parser.add_argument('directory', type = str, help = 'dir with location of  geo timeseries h5 file')
+    parser.add_argument('filename', type = str, help = 'name of the geo timeseries file')
     return parser
 
 parser = getparser()
@@ -25,6 +25,7 @@ args = parser.parse_args()
 dirs = '/home/jasmine/JasmineShare/kanger/mintpy/'
 os.chdir(dirs)
 
+h5_file = args.filename
 # import hdf5 file
 h5_dir = '/home/jasmine/JasmineShare/kanger/mintpy/timeseries.h5'
 #h5_dir = os.path.join(dirs,'geo_timeseries_ERA5_ramp_demErr.h5')
