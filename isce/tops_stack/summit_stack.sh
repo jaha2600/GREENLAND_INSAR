@@ -1,5 +1,9 @@
 #!/bin/bash
 
+### POTENTIAL ISSUES ? ###
+# do i need absolute pathing for files and script locations
+# do we need to change dir so it runs in the directiry with the files in?
+
 # Written by: jaha2600@colorado.edu
 # Date: 20220421
 # Purpose: This script submits a job on RMACC Summit. Can be used with other HPC systems if SBATCH/scheduling commands are changed.   
