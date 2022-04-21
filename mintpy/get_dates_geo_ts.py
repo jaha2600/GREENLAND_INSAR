@@ -13,22 +13,24 @@ def getparser():
     parser = argparse.ArgumentParser(description='Extract geocoded timeseries steps')
     #make sure you hardcode the path or use $PWD/ in the commandline infront of file
     parser.add_argument('directory', type = str, help = 'dir with location of  geo timeseries h5 file')
-    parser.add_argument('filename', type = str, help = 'name of the geo timeseries file')
+    #parser.add_argument('filename', type = str, help = 'name of the geo timeseries file')
     return parser
 
 parser = getparser()
 args = parser.parse_args()
 #%%
 #change dir
-dirs = args.directory
+#dirs = args.directory
 #dirs='/data/GREENLAND/2022/KANGER_TEST/mintpy/geo/'
-#dirs = '/home/jasmine/JasmineShare/kanger/mintpy/'
+dirs = '/home/jasmine/JasmineShare/kanger/mintpy/geo/'
 os.chdir(dirs)
 
-h5_file = args.filename
+#h5_file = args.filename
 # import hdf5 file
 #h5_dir = '/home/jasmine/JasmineShare/kanger/mintpy/timeseries.h5'
-h5_dir = os.path.join(dirs,h5_file)
+
+h5_dir = os.path.join(dirs,'geo_timeseries_ERA5_demErr.h5')
+print(h5_dir)
 # put dates into a list 
 with h5.File(h5_dir,'r') as f:
     #data = f['timeseries'][:]
@@ -50,7 +52,9 @@ date_df2['dates'] = date_list
 #%%
 # then run save_gdal.py for each date in the timeseries to create output geotiff
 for f in date_df2['dates']:
-    cmd = 'save_gdal.py geo_timeseries_ERA5_ramp_demErr.h5 -d timeseries-{} --of GTiff -o geo_ts_ERA5_demErr_{}.tif'.format(f,f)
-    #print(cmd)
+   # cmd = 'save_gdal.py geo_timeseries_ERA5_ramp_demErr.h5 -d timeseries-{} --of GTiff -o geo_ts_ERA5_demErr_{}.tif'.format(f,f)
+    cmd = 'save_gdal.py geo_timeseries_ERA5_demErr.h5 -d {} --of GTiff -o geo_ts_ERA5_demErr_{}.tif'.format(f,f)
     subprocess.run(cmd,shell=True)
 
+
+# %%
