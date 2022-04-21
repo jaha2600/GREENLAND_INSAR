@@ -9,7 +9,7 @@ ml anaconda
 
 # create enivoronment for mintpy
 conda create -n mintpy -y
-#conda activate mintpy
+conda activate mintpy
 # install mamba for faster project install
 conda install -c conda-forge mamba -y
 
