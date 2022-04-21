@@ -20,15 +20,15 @@ parser = getparser()
 args = parser.parse_args()
 #%%
 #change dir
-#dirs = args.directory
+dirs = args.directory
 #dirs='/data/GREENLAND/2022/KANGER_TEST/mintpy/geo/'
-dirs = '/home/jasmine/JasmineShare/kanger/mintpy/'
+#dirs = '/home/jasmine/JasmineShare/kanger/mintpy/'
 os.chdir(dirs)
 
 h5_file = args.filename
 # import hdf5 file
-h5_dir = '/home/jasmine/JasmineShare/kanger/mintpy/timeseries.h5'
-#h5_dir = os.path.join(dirs,'geo_timeseries_ERA5_ramp_demErr.h5')
+#h5_dir = '/home/jasmine/JasmineShare/kanger/mintpy/timeseries.h5'
+h5_dir = os.path.join(dirs,h5_file)
 # put dates into a list 
 with h5.File(h5_dir,'r') as f:
     #data = f['timeseries'][:]
