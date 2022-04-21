@@ -29,7 +29,7 @@ stackSentinel.py -s slc/ -d dem/glo_30.dem.wgs84 -a aux_dir/ -o orbits/ -b '65.5
 
 cd run_files/
 
-# compile all shell scripts together and add the && symbol at the end to run all together
+# compile all shell scripts together and add the && symbol at the end to run all together - creates a bash script called batch.sh that you can then execute
 
 ls run* > batch.sh
 # add the symbol to the end.
@@ -47,6 +47,7 @@ done
 # give permissions to all shell scripts
 chmod +x *
 
+# run batch script which executes the scripts in order one after the other
 ./batch.sh 
 
 echo 'Script Complete'
