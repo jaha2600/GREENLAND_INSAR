@@ -11,14 +11,14 @@
 
 #SBATCH --job-name=sstack-       # Job submission name
 #SBATCH --mail-type=END            # Email user when job finishes
-#SBATCH --mail-user=jaha2600@colorado.edu # Email address of user
+#SBATCH --mail-user= # Email address of user
 
 ml purge
 ml gcc/10.2.0
 ml anaconda
 conda activate mintpy
 
-# usage = sbatch sbatch_mintpy.sh Kanger_test.txt (infile is the config file)
-INFILE=$1
+# usage = sbatch sbatch_mintpy.sh
 
-smallbaselineApp.py INFILE
+
+smallbaselineApp.py congfig_file.cfg
