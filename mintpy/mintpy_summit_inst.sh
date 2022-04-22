@@ -5,13 +5,10 @@ ml purge
 ml gcc/10.2.0
 ml anaconda
 
-#conda env remove --name mintpy -y
-
 # create enivoronment for mintpy
 conda create -n mintpy -y
 conda activate mintpy
-# install mamba for faster project install
-#conda install -c conda-forge mamba -y
+
 
 # install mintpy 
 conda install -c conda-forge mintpy -y
