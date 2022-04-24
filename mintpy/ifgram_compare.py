@@ -9,7 +9,11 @@ import pandas as pd
 
 #%%
 ##### ifgram.h5 file in inputs dir ####
+h5 = h5.File('/home/jasmine/JasmineShare/kanger/mintpy_2/maskConnComp.h5','r')
+mask = h5['mask']
+plt.imshow(h5)
 
+#%%
 if_h5 = h5.File('/data/GREENLAND/2022/KANGER_TEST/mintpy/inputs/ifgramStack.h5', 'r')
 #ts_h5_ion = h5.File('path', 'r')
 # obtain keys which tell you the datasets in the file 
