@@ -43,9 +43,42 @@ plt.savefig(out_file, bbox_inches='tight', transparent=True, dpi=300)
 print(f'save to file: {out_file}')
 plt.show()
 # %%
+
+### WORKING EDITS BELOW ###
+
 # save out data files as pandas dataframe
 df = pd.DataFrame()
 df['dates'] = dates
 df['disp'] = dis 
 df.to_csv((os.path.join(proj_dir,'kely_mp_ts.csv')))
+# %%
+# calculate the regression (and thus rate) of the data
+
+x = np.arange(dates.size)
+fit = np.polyfit(x,dis,1)
+
+
+# fitting of subbed timeseries
+x = np.arange(df['dates'].size) # = array([0, 1, 2, ..., 3598, 3599, 3600])
+fit = np.polyfit(x, df['disp'], 1)
+fit_fn = np.poly1d(fit)
+model2 = np.poly1d(np.polyfit(x, df.disp, 2))
+model3 = np.poly1d(np.polyfit(x, df.disp, 3))
+model4 = np.poly1d(np.polyfit(x, df.disp, 4))
+model5 = np.poly1d(np.polyfit(x, df.disp, 5))
+
+reg_coeff = model2[0]
+inters = fit[1]
+print('Line eq = y = {} * x + {}'.format(reg_coeff, inters))
+# %%
+uplift_rate_mm = reg_coeff * 1000
+# %%
+
+# timeseries
+plt.plot(df['dates'], df['disp'], 'go', ms=2)
+# linear
+plt.plot(df['dates'], model2(x), 'k-')
+
+
+
 # %%
