@@ -4,6 +4,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 from mintpy.utils import utils as ut, plot as pp
+import pandas as pd
 #plt.rcParams.update({'font.size': 12})
 #%%
 # work directory
@@ -41,4 +42,10 @@ out_file = os.path.join(proj_dir, 'kely_ts.png')
 plt.savefig(out_file, bbox_inches='tight', transparent=True, dpi=300)
 print(f'save to file: {out_file}')
 plt.show()
+# %%
+# save out data files as pandas dataframe
+df = pd.DataFrame()
+df['dates'] = dates
+df['disp'] = dis 
+df.to_csv((os.path.join(proj_dir,'kely_mp_ts.csv')))
 # %%
