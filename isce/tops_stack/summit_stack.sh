@@ -7,7 +7,7 @@
 # Written by: jaha2600@colorado.edu
 # Date: 20220421
 # Purpose: This script submits a job on RMACC Summit. Can be used with other HPC systems if SBATCH/scheduling commands are changed.   
-#SBATCH -A      # Summit allocation
+#SBATCH --account=      # Summit allocation
 #SBATCH --partition=shas    # Summit partition
 #SBATCH --qos=                # Summit qos
 #SBATCH --time=24:00           # Max wall time
@@ -19,10 +19,10 @@
 #SBATCH --mail-user=jaha2600@colorado.edu # Email address of user
 
 # purge existing modules
-module purge 
+ml purge 
 # load modules
-module gcc/10.2.0 
-module anaconda 
+ml gcc/10.2.0 
+ml anaconda 
 conda activate isce2 
 
 # select files in correct places for ion corr
@@ -42,16 +42,10 @@ sed -i 's/$/\ \&\&/' batch.sh
 sed -i 's/^/\.\//' batch.sh
 #then need to remove && from the end of the file 
 sed -i 's/run_24_invertIon \&\&/run_24_invertIon/' batch.sh
-# try and insert the step number between each line
-#get number of lines in batch file 
-lines=$(cat batch.sh | wc -l)
-for f in lines; do
-sed -i '${f}i This is Line ${f}' batch.sh
-done
 # give permissions to all shell scripts
 chmod +x *
 
 # run batch script which executes the scripts in order one after the other
-./batch.sh 
+#./batch.sh 
 
 echo 'Script Complete'
