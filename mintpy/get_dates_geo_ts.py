@@ -22,7 +22,7 @@ args = parser.parse_args()
 #change dir
 #dirs = args.directory
 #dirs='/data/GREENLAND/2022/KANGER_TEST/mintpy/geo/'
-dirs = '/home/jasmine/JasmineShare/kanger/mintpy/geo/'
+dirs = '/home/jasmine/JasmineShare/kanger/mintpy_summit/geo/'
 os.chdir(dirs)
 
 #h5_file = args.filename

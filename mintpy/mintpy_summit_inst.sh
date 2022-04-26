@@ -14,7 +14,7 @@ conda activate mintpy
 conda install -c conda-forge mintpy -y
 # install pyaps3 for ERA5 correciton (may already be installed in mintpy - check)
 #conda install -c conda-forge pyaps3 -y
-
+# add comment
 #ERA5 correction
 # user has to make account with CDS and accept data license 'https://cds.climate.copernicus.eu/user/register'
 # check instructions below to add file in home directory and create .cdsapirc file
