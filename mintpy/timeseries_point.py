@@ -49,36 +49,51 @@ plt.show()
 # save out data files as pandas dataframe
 df = pd.DataFrame()
 df['dates'] = dates
-df['disp'] = dis 
-df.to_csv((os.path.join(proj_dir,'kely_mp_ts.csv')))
+df['disp'] = dis
+df['disp_1000'] = df['disp'] * 1000
+#df.to_csv((os.path.join(proj_dir,'kely_mp_ts.csv')))
 # %%
 # calculate the regression (and thus rate) of the data
 
-x = np.arange(dates.size)
-fit = np.polyfit(x,dis,1)
-
+x = np.arange(df['dates'].size)
+fit = np.polyfit(x,df['disp_1000'],1)
+fit_fn = np.poly1d(fit)
 
 # fitting of subbed timeseries
-x = np.arange(df['dates'].size) # = array([0, 1, 2, ..., 3598, 3599, 3600])
-fit = np.polyfit(x, df['disp'], 1)
-fit_fn = np.poly1d(fit)
-model2 = np.poly1d(np.polyfit(x, df.disp, 2))
-model3 = np.poly1d(np.polyfit(x, df.disp, 3))
-model4 = np.poly1d(np.polyfit(x, df.disp, 4))
-model5 = np.poly1d(np.polyfit(x, df.disp, 5))
+#x = np.arange(df['dates'].size) # = array([0, 1, 2, ..., 3598, 3599, 3600])
+#fit = np.polyfit(x, df['disp'], 1)
+##fit_fn = np.poly1d(fit)
+#model2 = np.poly1d(np.polyfit(x, df.disp, 2))
+#model3 = np.poly1d(np.polyfit(x, df.disp, 3))
+#model4 = np.poly1d(np.polyfit(x, df.disp, 4))
+#model5 = np.poly1d(np.polyfit(x, df.disp, 5))
 
-reg_coeff = model2[0]
+reg_coeff = fit[0]
 inters = fit[1]
 print('Line eq = y = {} * x + {}'.format(reg_coeff, inters))
 # %%
 uplift_rate_mm = reg_coeff * 1000
+print(uplift_rate_mm)
 # %%
 
-# timeseries
-plt.plot(df['dates'], df['disp'], 'go', ms=2)
-# linear
-plt.plot(df['dates'], model2(x), 'k-')
+# timeseries plotting, mutliply disp by 1000 to get to mm units
+fig, ax = plt.subplots(nrows=1, ncols=1, figsize=[6, 3])
+ax.scatter(dates, dis*1000, marker='^', s=6**2, facecolors='none', edgecolors='k', linewidth=1.)
+ax.plot(dates, (fit_fn(x)), 'k-')
 
+# axis format edited for ylim values. 
+ax.tick_params(which='both', direction='in', bottom=True, top=True, left=True, right=True)
+pp.auto_adjust_xaxis_date(ax, dates)
+ax.set_ylim(-5, 5)
+ax.set_xlabel('Time [year]')
+ax.set_ylabel('LOS displacement [mm]')
+fig.tight_layout()
+
+# output
+out_file = os.path.join(proj_dir, 'kely_ts.png')
+plt.savefig(out_file, bbox_inches='tight', transparent=True, dpi=300)
+print(f'save to file: {out_file}')
+plt.show()
 
 
 # %%
