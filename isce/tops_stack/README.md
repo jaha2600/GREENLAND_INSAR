@@ -11,3 +11,4 @@ USER CHANGES: upper and lower bounds for ion selection (line 26); dem, bounding 
 
 USER TROUBLESHOOTING: delete the orbits directory before starting another run to avoid errors (it will automatically re-download them when running stackSeninel.py), make sure you've changed path in dem xml file
 
+`create_batch.sh` and `create_batch_ion.sh` are standalone bash scripts that can be used to batch execute run file directories in normal and ion stack runs. Mostly for use on personal machines.
