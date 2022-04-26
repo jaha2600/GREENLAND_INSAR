@@ -44,16 +44,13 @@ sed -i 's/^/\.\//' batch.sh
 #then need to remove && from the end of the file 
 sed -i 's/run_24_invertIon \&\&/run_24_invertIon/' batch.sh
 
-### JH ADD AND NEEDS TO TEST ###
+### JH ADD AND HAS TESTED ON SUMMIT AND SEEMS TO WORK WELL ###
 ### adds echo commands to start an end of each run file to make it easier to see where we get to if fail / timeout 
 ls run* > run_list
-
-for f in $(cat run_list) ; do
-  # add text to start of file so you know the section.
-  sed -i "1s/^/echo '${f} START \n/'" ${f}
-  # then add the ending text to end of script.
-  echo "echo '${f} END'" >> ${f}
-done
+# add text to start of file so you know the section.
+for f in $(cat run_list) ; do sed -i "1s/^/echo '${f} START'\n/" ${f}; done
+# then add the ending text to end of script.
+for i in $(cat run_list) ; do echo "echo '${i} END'" >> ${i} ; done 
 
 # give permissions to all shell scripts
 chmod +x *
