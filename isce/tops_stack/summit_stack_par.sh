@@ -24,7 +24,6 @@ ml parallel
 conda activate isce2
 
 
-#seems to be a bit like this: 
-# you have a file named commands.txt, containing a list of commands and want to run one command per core:
-# add --jobs 2 if you want to run two jobs concurrently on a node
-parallel > run_01*
+# have individual sbatch submissions for each run file, that don't start until the first one has been executed
+
+# within that you want to paralleize each line in the run file script so that it runs them all together
