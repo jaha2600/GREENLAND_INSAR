@@ -9,9 +9,11 @@ ml anaconda
 conda activate isce2
 
 # submit a job for each run file 
-sbatch --qos=normal --account=ucb-summit-mjw --partition=shas --time=24:00:00 --nodes=1 --ntasks=24 --mail-type=END --mail-user=jaha2600@colorado.edu --hold run_01(job before) --error=${WORKDIR}/logs/job.err --output=${WORKDIR}/logs/job.out ./doParallelStep.sh runfile_name 
+sbatch --qos=normal --account=ucb-summit-mjw --partition=shas --time=24:00:00 --nodes=1 --ntasks=10 --mail-type=END --mail-user=jaha2600@colorado.edu --error=${WORKDIR}/logs/job.err --output=${WORKDIR}/logs/job.out ${WORKDIR}/run_files/run_01_unpack_topo_reference
 
-thoughts:
-make everything hard coded vs realative path?
-check run time for different files from orirginal scripts from clayton
-edit/create parallel step thing
+#thoughts:
+#make everything hard coded vs realative path?
+#check run time for different files from orirginal scripts from clayton
+#edit/create parallel step thing
+#or --wait instead of hold. 
+# ./doParallelStep.sh
