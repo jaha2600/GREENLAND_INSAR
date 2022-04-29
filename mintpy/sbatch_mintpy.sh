@@ -19,6 +19,8 @@ ml anaconda
 conda activate mintpy
 
 # usage = sbatch sbatch_mintpy.sh
-
-
 smallbaselineApp.py congfig_file.cfg
+
+# DASK implemetnation - check this works
+ifgram_inversion.py inputs/ifgramStack.h5 -t smallbaselineApp.cfg
+smallbaselineApp.py smallbaselineApp.cfg
