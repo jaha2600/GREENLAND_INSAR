@@ -20,27 +20,18 @@ ml anaconda
 ml gnu_parallel
 conda activate isce2
 
-#edited  from clayton code
-
 # --delay .2 prevents overloading the controlling node
 # -j is the number of tasks parallel runs so we set it to 24 (the number of steps we want to run)
 # --joblog makes parallel create a log of tasks that it has already run
 # --resume makes parallel use the joblog to resume from where it has left off
-# the combination of --joblog and --resume allow jobs to be resubmitted if
-# necessary and continue from where they left off
+# the combination of --joblog and --resume allow jobs to be resubmitted if necessary and continue from where they left off
 
-parallel --delay .2 -j $SLURM_NTASKS --joblog logs/runtask2.log --resume -a run_02.....
+# submit each line in 
+parallel --delay .2 -j $SLURM_NTASKS --joblog logs/runtask2.log --resume -a run_02_unpack_secondary_slc
 
-# lifted from RMACC guide (perhaps use this one..)
-my_parallel="parallel --delay .2 -j $SLURM_NTASKS"
-my_srun="srun --export=all --exclusive -n1 --cpus-per-task=1 --cpu-bind=cores"
-$my_parallel "$my_srun ./run_02_......" ::: {1..20}
 
-# look at this link https://github.com/aria-jpl/topsstack-hamsar-classic/blob/071ea24555f2b228ecd5c853e7f2dc1834febc33/run_stack.sh
-## STEP 2 ##
-start=`date +%s`
-cat run_files/run_02_unpack_s_slc | parallel -j+10 --eta --load 100%
-end=`date +%s`
 
-runtime2=$((end-start))
-echo runtime2
+# lifted from RMACC guide
+#my_parallel="parallel --delay .2 -j $SLURM_NTASKS"
+##my_srun="srun --export=all --exclusive -n1 --cpus-per-task=1 --cpu-bind=cores"
+#$my_parallel "$my_srun ./run_02_......" ::: {1..20}

@@ -8,7 +8,7 @@
 #SBATCH --qos=                # Summit qos
 #SBATCH --time=24:00:00           # Max wall time
 #SBATCH --nodes=1          # Number of Nodes
-#SBATCH --ntasks=24          # Number of tasks per job
+#SBATCH --ntasks=12         # Number of tasks per job
 
 #SBATCH --job-name=sstack      # Job submission name
 #SBATCH --mail-type=END            # Email user when job finishes
