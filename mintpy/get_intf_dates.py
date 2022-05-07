@@ -41,7 +41,7 @@ df = pd.DataFrame()
 df['date_1'] = date_list[:,0]
 df['date_2'] = date_list[:,1]
 df['dates'] = df[['date_1', 'date_2']].apply(lambda row: '_'.join(row.values.astype(str)), axis=1)
-df.drop(columns=['date_1', 'date_2'])
+#df.drop(columns=['date_1', 'date_2'])
 df.to_csv((os.path.join(dirs,'dates.csv')), index=True, header=False)
 
 # %%
