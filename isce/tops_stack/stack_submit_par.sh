@@ -28,3 +28,6 @@ parallel --delay .2 -j $SLURM_NTASKS --joblog ${WORKDIR}/logs/par_run_02.log --r
 sbatch --qos=normal --job-name=run_02 --account=ucb-summit-mjw --partition=shas --time=24:00:00 --nodes=1 --ntasks=10 --mail-type=END --mail-user=jaha2600@colorado.edu --error=${WORKDIR}/logs/run_02.err --output=${WORKDIR}/logs/run_02.out PARALLEL STEP ${WORKDIR}/run_files/run_02_unpack_secondary_slc
 
 # add below for each stage depending par / no parallel.
+
+#load balance
+# shas testing for prep script 
