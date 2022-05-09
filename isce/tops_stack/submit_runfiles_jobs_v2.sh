@@ -1,4 +1,6 @@
 #!/bin/sh
+## JH ADD CREATION OF run_list AT START ##
+ls run_* > run_list
 
  i=1
  EXE_SCRIPT=$(sed -n "${i}p" run_files/run_list)
