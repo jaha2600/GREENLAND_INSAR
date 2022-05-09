@@ -1,5 +1,7 @@
 # ISCE2 on RMACC Summit
-Scripts to build and then submit jobs for stackSentinel.py from the ISCE2 project on summit
+Scripts to build and then submit jobs for stackSentinel.py from the ISCE2 project on summit.
+
+Main contributors: Jasmine Hansen (jasmine.hansen@colorado.edu), Joel Johnson (joel.johnson@colorado.edu), and Andy Monaghan (CU Reseach Computing)
 ## Installation
 Run the `isce2install.sh` script on an scompile node to install isce2 and associated dependencies onto summit. It also adds the correct paths to your .bashrc file
 
