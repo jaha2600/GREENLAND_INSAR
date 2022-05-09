@@ -1,5 +1,6 @@
 #!/bin/bash
 
+### Jasmine Hansen 2022 ###
 # compile all shell scripts together and add the && symbol at the end to run all together
 
 ls run* > batch.sh

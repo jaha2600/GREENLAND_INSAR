@@ -1,6 +1,5 @@
 #!/bin/bash
-# written by Joel Johnson joel.johnson@colorado.edu
-# with marked edits by Jasmine Hansen jasmine.hansen@colorado.edu
+# written by Joel Johnson joel.johnson@colorado.edu and Jasmine Hansen jasmine.hansen@colorado.edu
 #this script installs isce on Summit
 #seperate scripts are needed because there are different gcc compilers on Summit than on Alpine
 

@@ -1,18 +1,17 @@
 #!/bin/bash
 
-# Written by: jaha2600@colorado.edu
-# Date: 20220421
+# Written by: Jasmine Hansen 2022 - jaha2600@colorado.edu
 # Purpose: This script submits a job on RMACC Summit. Can be used with other HPC systems if SBATCH/scheduling commands are changed.   
 #SBATCH --account=      # Summit allocation
 #SBATCH --partition=shas    # Summit partition
 #SBATCH --qos=                # Summit qos
 #SBATCH --time=24:00:00           # Max wall time
 #SBATCH --nodes=1          # Number of Nodes
-#SBATCH --ntasks=24          # Number of tasks per job
+#SBATCH --ntasks=8          # Number of tasks per job
 
 #SBATCH --job-name=sstack      # Job submission name
 #SBATCH --mail-type=END            # Email user when job finishes
-#SBATCH --mail-user=jaha2600@colorado.edu # Email address of user
+#SBATCH --mail-user= # Email address of user
 
 # purge existing modules
 ml purge
@@ -33,13 +32,12 @@ stackSentinel.py -s slc/ -d dem/glo_30.dem.wgs84 -a aux_dir/ -o orbits/ -b '65.5
 # move to runfiles directory
 cd run_files/
 
-### JH ADD AND HAS TESTED ON SUMMIT AND SEEMS TO WORK WELL ###
-### adds echo commands to start an end of each run file to make it easier to see where we get to if fail / timeout 
 ls run* > run_list
+# below not needed in parallel version
 # add text to start of file so you know the section.
-for f in $(cat run_list) ; do sed -i "1s/^/echo '${f} START'\n/" ${f}; done
+#for f in $(cat run_list) ; do sed -i "1s/^/echo '${f} START'\n/" ${f}; done
 # then add the ending text to end of script.
-for i in $(cat run_list) ; do echo "echo '${i} END'" >> ${i} ; done 
+#for i in $(cat run_list) ; do echo "echo '${i} END'" >> ${i} ; done 
 
 echo 'Prep Stage Complete'
 

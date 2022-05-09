@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# Written by: jaha2600@colorado.edu
-# Date: 20220421
+# Written by: Jasmine Hansen jaha2600@colorado.edu
 # Purpose: This script submits a job on RMACC Summit. Can be used with other HPC systems if SBATCH/scheduling commands are changed.   
 #SBATCH --account=      # Summit allocation
 #SBATCH --partition=shas    # Summit partition

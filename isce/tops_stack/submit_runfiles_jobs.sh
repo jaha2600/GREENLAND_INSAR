@@ -1,4 +1,5 @@
 #!/bin/sh
+## Written by Andy Monaghan, Joel Johnson & Jasmine Hansen ##
 
 numsteps=4
 
