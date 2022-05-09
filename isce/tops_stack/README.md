@@ -11,6 +11,8 @@ Once installed you should be able (on scompile) to run ml anaconda, conda activa
 ## Batch Job Submission
 On sbatch use `summit_stack.sh` to run. This generates run files via stackSentinel.py and then executes them using in a batch shell script. It is set up for use with the ionospheric correction module so user will have to edit script to remove these. See https://github.com/isce-framework/isce2/tree/main/contrib/stack/topsStack.
 
+You will likely have to resubmit this job a few times due to the 24 hr max timeout window for shas nodes. If you look in the slurm output file it will tell you the stage where the script timed out. Remove the completed run_file lines from the `batch.sh` script in the run_files directory and resubmit the script commenting out everything but `cd run_files` and `./batch.sh` lines.
+
 USER CHANGES: upper and lower bounds for ion selection (line 26); dem, bounding box etc. for stackSentinel.py command.
 
 USER TROUBLESHOOTING: delete the orbits directory before starting another run to avoid errors (it will automatically re-download them when running stackSeninel.py), make sure you've changed path in dem xml file
