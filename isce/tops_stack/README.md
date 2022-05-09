@@ -20,6 +20,8 @@ USER TROUBLESHOOTING: delete the orbits directory before starting another run to
 ## Batch Parallel Job Submission
 Developed with CU Reseach Computing - Andy Monaghan 
 
+STILL IN TESTING
+
 This submits each run stage as a seperate sbatch submission and uses GNU parallel to speed up stages. 
 
 ### Step 1
