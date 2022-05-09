@@ -20,6 +20,13 @@ Copy script `sbatch_mintpy.sh` to dir with `.cfg` file in it and submit on scomp
 
 USER CHANGES: user must change `.cfg` file name on line 22 of `sbatch_mintpy.sh` to match name of actual file in directory.
 
+ISSUES: Jasmine currently gets a gdal error when running mintpy with GACOS corrections instead of the default ERA. Still being looked into but user may be able to fix by adding the following modules to top of `sbatch_mintpy.sh`
+
+`ml intel/17.4`
+
+
+`ml gdal/3.4.2`
+
 ## Other Scripts
 Example config files with varying mintpy parameters 
 
