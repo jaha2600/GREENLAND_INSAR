@@ -11,7 +11,7 @@ Sentinel-1 TOPS stack processor https://github.com/isce-framework/isce2/tree/mai
 Miami INsar Time-series software in PYthon (MintPy) https://github.com/insarlab/MintPy
 
 ## Use in Publication
-If any of this code used in publication please credit Jasmine Hansen, any other authors listed in scropts, and github repo https://github.com/jaha2600/GREENLAND_INSAR
+If any of this code used in publication please credit Jasmine Hansen, any other authors listed in scripts, and github repo https://github.com/jaha2600/GREENLAND_INSAR
 and credit any other software used (ISCE, MintPy etc.)
 
 Jasmine Hansen, 2022
