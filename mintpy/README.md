@@ -14,7 +14,7 @@ USER CHANGES: user must replace `KEY` in line 25 with their personal CDS key.
 ## Batch Job Submission
 Set up your directory structure and `.cfg` file as per instructions on MintPy github page (https://github.com/insarlab/MintPy).
 
-Include the dask parallel computing flags in the `.cfg` which speeds up the running of the algorithm.
+I would reccomend including the dask parallel options which speeds up the running of the algorithm (see MintPy info.)
 
 Copy script `sbatch_mintpy.sh` to dir with `.cfg` file in it and submit on scompile node `sbatch sbatch_mintpy.sh`
 
