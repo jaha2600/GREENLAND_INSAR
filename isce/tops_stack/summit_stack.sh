@@ -27,7 +27,7 @@ cd $WORK_DIR
 
 # select files in correct places for ion corr
 # add the correct upper and lower bounds for your dataset
-s1_select_ion.py -dir ./slc -sn 65.505836/67.561638 -nr 10
+s1_select_ion.py -dir $WORK_DIR/slc -sn 65.505836/67.561638 -nr 10
 
 #then run the stack senintel to make the run files 
 # no need to have an orbits directory as it will download automatically
