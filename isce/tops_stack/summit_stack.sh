@@ -20,6 +20,11 @@ ml gcc/10.2.0
 ml anaconda
 conda activate isce2
 
+WORK_DIR=/scratch/summit/$USER/GREENLAND
+
+# may not need below cd if hardpathing everything in
+cd $WORK_DIR
+
 # select files in correct places for ion corr
 # add the correct upper and lower bounds for your dataset
 s1_select_ion.py -dir ./slc -sn 65.505836/67.561638 -nr 10
@@ -27,10 +32,10 @@ s1_select_ion.py -dir ./slc -sn 65.505836/67.561638 -nr 10
 #then run the stack senintel to make the run files 
 # no need to have an orbits directory as it will download automatically
 # need to have slc/ dem/ aux_dir/
-stackSentinel.py -s slc/ -d dem/glo_30.dem.wgs84 -a aux_dir/ -o orbits/ -b '65.505836 67.561638 -55.494823 -49.108829' -c 4 -p hv --param_ion ./ion_param.txt --num_connections_ion 3
+stackSentinel.py -s $WORK_DIR/slc/ -d $WORK_DIR/dem/glo_30.dem.wgs84 -a $WORK_DIR/aux_dir/ -o $WORK_DIR/orbits/ -b '65.505836 67.561638 -55.494823 -49.108829' -c 4 -p hv --param_ion $WORK_DIR/ion_param.txt --num_connections_ion 3
 
 # move to runfiles directory
-cd run_files/
+cd $WORK_DIR/run_files/
 
 # compile all shell scripts together and add the && symbol at the end to run all together - creates a bash script called batch.sh that you can then execute
 
