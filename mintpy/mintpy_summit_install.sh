@@ -22,4 +22,4 @@ conda install -c conda-forge mintpy -y
 
 # change the key to be your own key from the website
 # check this works correctly (\n should execute a new line)
-echo -e "url: https://cds.climate.copernicus.eu/api/v2\nkey: 128558:1342efd7-d87c-41f4-a2c2-10a847ff7080" >> ~/.cdsapirc
+echo -e "url: https://cds.climate.copernicus.eu/api/v2\nkey: KEY" >> ~/.cdsapirc
