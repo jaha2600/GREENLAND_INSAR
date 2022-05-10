@@ -32,11 +32,11 @@ Run sbatch for script `prep_stack_par.sh` in main isce2 directory which runs the
 USER CHANGES: bounds, slurm parameters and check directory names.
 
 ### Step 2
-Navigate to run_files directory. Place `runfile_jobs.sh` and `submit_runfiles_jobs.sh` in directory.
+Navigate to run_files directory. Place `runfile_jobs.sh` and `submit_runfiles_jobs_v3.sh` in directory.
 
-Submit `submit_runfiles_jobs.sh` in commandline - not using sbatch command but ensure you are on an scompile node.
+Submit `./submit_runfiles_jobs_v3.sh` in commandline - not using sbatch command but ensure you are on an scompile node.
 
-USER CHANGES: check `--ntasks`, `--account`, `--nodes` and other associated slurm commands. Check number of stages is equal to number of run_file changes in the directory. 
+USER CHANGES: check `--account`, `--nodes` and other associated slurm commands. Check number of stages is equal to number of run_file changes in the directory. For each stage change $NUM_TASKS to match what you want it to be. Some information about jobtime vs ntasks can be found in the top of the script. 
 
 
 ### If code used in publication please reference this github, isce2, and the associated authors listed in each script.
