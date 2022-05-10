@@ -10,7 +10,7 @@
 # submit prep stage (needs to be in same dir as submit_runfiles script)
 #i=0
 #id=`sbatch --export=NONE --partition=shas --qos=normal --account= --job-name=prep_stage --output=prep_output_%j.out --nodes=1 --ntasks=6 --time=24:00:00 prep_stack_par.sh | awk '{print $4}'`
-#echo "submitted prep stage as $id with 12 ntasks"
+#echo "submitted prep stage as $id with 6 ntasks"
 
 # now submit the run_01 with the added dependency of the prep stage needing to run first
  #i=1
