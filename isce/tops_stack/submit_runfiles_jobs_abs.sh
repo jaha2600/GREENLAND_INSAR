@@ -3,16 +3,17 @@
 ## JH edited to make pathing absolute - needs checking ##
 
 WORK_DIR=/scratch/summit/$USER/GREENLAND
-# navigate to working directory
+
 cd $WORK_DIR
 
 # copy the runfile_jobs.sh script to the $WORK_DIR directory if its not already there as that is relative pathed and cannot be run from /projects.
-RUNFILE=/projects/$USER/..../runfile_jobs.sh 
+
+RUNFILE=/projects/$USER/..../runfiles_jobs.sh 
 
 if [[ -f "$RUNFILE" ]]; then
   echo "$RUNFILE already exists"
 else
-  cp $RUNFILE $WORKDIR
+  cp $RUNFILE $WORK_DIR
   echo "$RUNFILE copied to $WORK_DIR"
 fi
 
