@@ -6,6 +6,21 @@
 # run_01 - 24 ntasks - 44 min, run_02 - 12 ntasks - 46 sec, run_03 - 12 ntasks - 15 sec, run_04 - 12 ntasks - 10 sec, run_05 - 12 ntasks - 25 min
 # run_06 - 12 ntasks - 50 min, run_07 - 12 ntasks - 55 min, run_08 - 12 ntasks - 10 sec
 
+##### experimental - add the prep stage into the start and make the run_01 stage dependent on that job and then continue as normal #####
+# submit prep stage (needs to be in same dir as submit_runfiles script)
+#i=0
+#id=`sbatch --export=NONE --partition=shas --qos=normal --account= --job-name=prep_stage --output=prep_output_%j.out --nodes=1 --ntasks=6 --time=24:00:00 prep_stack_par.sh | awk '{print $4}'`
+#echo "submitted prep stage as $id with 12 ntasks"
+
+# now submit the run_01 with the added dependency of the prep stage needing to run first
+ #i=1
+ #EXE_SCRIPT=$(sed -n "${i}p" run_files/run_list)
+ #NUM_TASKS=24
+ #id2=$id
+ #id=`sbatch --depend=afterany:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=24:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
+ #echo "submitted initial job $EXE_SCRIPT as $id with $NUM_TASKS ntasks, which depends on job $id2"
+
+
  i=1
  EXE_SCRIPT=$(sed -n "${i}p" run_files/run_list)
  NUM_TASKS=24
