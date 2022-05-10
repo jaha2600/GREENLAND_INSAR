@@ -1,6 +1,11 @@
 #!/bin/sh
 ## Written by Andy Monaghan, Joel Johnson & Jasmine Hansen ##
 ## May 9th 2022 JH edit to manually add --ntasks and add max stage numbers
+
+### Below are job lengths for a 10 interferogram test set (still running at present).
+# run_01 - 24 ntasks - 44 min, run_02 - 12 ntasks - 46 sec, run_03 - 12 ntasks - 15 sec, run_04 - 12 ntasks - 10 sec, run_05 - 12 ntasks - 25 min
+# run_06 - 12 ntasks - 50 min, run_07 - 12 ntasks - 55 min, run_08 - 12 ntasks - 10 sec
+
  i=1
  EXE_SCRIPT=$(sed -n "${i}p" run_files/run_list)
  NUM_TASKS=24
