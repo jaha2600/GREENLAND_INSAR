@@ -46,6 +46,6 @@ There a few variations of the submit_runfiles and runfiles_jobs scripts in the d
 
 `submit_runfiles_jobs_total.sh` This hasn't been tested yet but it just integrates the prep_stack_par.sh stage into the bulk submission of jobs. Again place prep_stack_par.sh in the isce stack directory. Run_files stage 01 should then run upon successful completion of this stage.
 
-`runfiles_jobs_2.sh` This uses two cpus per task for GNU parallel to improve memory when running computationally heavy stages. This may end up being the default runfiles_jobs script. Using two cpus per task ONLY works it --ntasks is equal to or less than 12. If you do use this script remember to change the name in the submit_runfiles script. 
+`runfiles_jobs_2.sh` This uses two cpus per task for GNU parallel to improve memory when running computationally heavy stages. This may end up being the default runfiles_jobs script. Using two cpus per task ONLY works if --ntasks is equal to or less than 12. If you do use this script remember to change the name in the submit_runfiles script. 
 
 ### If code used in publication please reference this github, isce2, and the associated authors listed in each script.
