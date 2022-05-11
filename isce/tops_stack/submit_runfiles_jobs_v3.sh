@@ -4,7 +4,9 @@
 
 ### Below are job lengths for a 10 interferogram test set (still running at present).
 # run_01 - 24 ntasks - 44 min, run_02 - 12 ntasks - 46 sec, run_03 - 12 ntasks - 15 sec, run_04 - 12 ntasks - 10 sec, run_05 - 12 ntasks - 25 min
-# run_06 - 12 ntasks - 50 min, run_07 - 12 ntasks - 55 min, run_08 - 12 ntasks - 10 sec
+# run_06 - 12 ntasks - 50 min, run_07 - 12 ntasks - 55 min, run_08 - 12 ntasks - 10 sec, run_09 - 12 ntasks - 03 hrs, run_10 - 12 ntasks - 01 hr 14 min
+# run_11 - 12 ntasks - 02 min, run_12 - 12 ntasks - 04 hrs, run_13 - 12 ntasks - 14 min, run_14, run_15, run_16 - 12 ntasks - MEM FAIL
+
 
 ##### experimental - add the prep stage into the start and make the run_01 stage dependent on that job and then continue as normal #####
 # submit prep stage (needs to be in same dir as submit_runfiles script)
