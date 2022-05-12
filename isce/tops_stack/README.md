@@ -29,6 +29,8 @@ This submits each run stage as a seperate sbatch submission and uses GNU paralle
 ### Step 1
 Run sbatch for script `prep_stack_par.sh` in main isce2 directory which runs the stackSentinel script to create all run files. This is currently set up for ionopsheric correction runs (see topsStack github for more info.)
 
+I WOULD STRONGLY RECCOMEND DELETING YOUR ORBITS DIRECTORY EACH TIME YOU DO A NEW RUN / RERUN YOUR PREP SCRIPT
+
 USER CHANGES: bounds, slurm parameters and check directory names.
 
 ### Step 2
