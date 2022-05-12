@@ -31,7 +31,7 @@ stackSentinel.py -s slc/ -d dem/glo_30.dem.wgs84 -a aux_dir/ -o orbits/ -b '65.5
 
 # move to runfiles directory
 cd run_files/
-
+chmod +x *
 ls run* > run_list
 # below not needed in parallel version
 # add text to start of file so you know the section.
