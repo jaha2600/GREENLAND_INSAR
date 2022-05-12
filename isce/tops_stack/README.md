@@ -32,7 +32,7 @@ Run sbatch for script `prep_stack_par.sh` in main isce2 directory which runs the
 USER CHANGES: bounds, slurm parameters and check directory names.
 
 ### Step 2
-Navigate to run_files directory. Place `runfile_jobs.sh` and `submit_runfiles_jobs_v3.sh` in directory.
+Navigate to main isce stack directory. Place `runfile_jobs.sh` and `submit_runfiles_jobs_v3.sh` in directory.
 
 Submit `./submit_runfiles_jobs_v3.sh` in commandline - not using sbatch command but ensure you are on an scompile node.
 
