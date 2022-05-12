@@ -31,7 +31,7 @@ Run sbatch for script `prep_stack_par.sh` in main isce2 directory which runs the
 
 I WOULD STRONGLY RECCOMEND DELETING YOUR ORBITS DIRECTORY EACH TIME YOU DO A NEW RUN / RERUN YOUR PREP SCRIPT
 
-USER CHANGES: bounds, slurm parameters and check directory names.
+USER CHANGES: match to your desired ion and stackSentinel.py commands (check if you need the -p flag as you do for Greenland by may not for other areas), bounds, slurm parameters and check directory names.
 
 ### Step 2
 Navigate to main isce stack directory. Place `runfile_jobs.sh` and `submit_runfiles_jobs_v3.sh` in directory.
