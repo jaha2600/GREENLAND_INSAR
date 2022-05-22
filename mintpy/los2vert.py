@@ -51,6 +51,24 @@ subprocess.run(inc_cmd,shell=True)
 #inc_2_cmd = 'gdal_calc.py -A incidenceAngle.tif --outfile=ic2.tif --calc="A*(3.141592653589793/180)"'
 #subprocess.run(inc_2_cmd,shell=True)
 
+def readFile(filename):
+    dataset = gdal.Open(filename)
+    cols = dataset.RasterXSize 
+    rows = dataset.RasterYSize
+    projection = dataset.GetProjection()
+    geotransform = dataset.GetGeoTransform()
+    xMin = geotransform[0]
+    yMax = geotransform[3]
+    xres = geotransform[1]
+    yres = geotransform[5]
+    data_raster = dataset.GetRasterBand(1)
+    dataset_array = dataset.GetRasterBand(1).ReadAsArray(0,0,cols,rows).astype(float)
+
+    return xMin, yMax, dataset_array, xres, yres, projection
+
+
+
+writeFile(binary_new_name_final,(xMin,yMax),xres,yres,projection,np.array(binary_mask,dtype=float))
 #%% open incidence angle geotiff and do math on it. 
 dataset = gdal.Open('incidenceAngle.tif')
     #information about the raster
@@ -74,6 +92,8 @@ dataset_array = dataset.GetRasterBand(1).ReadAsArray(0,0,cols,rows).astype(float
 #%% do math on the incidence angle file
 ic2 = dataset_array * (np.pi/180)
 ic3 = np.cos(ic2)
+# change this to match things. 
+
 #%%
 # mask ic3
 mask_cmd = 'save_gdal.py {}geo/geo_maskTempCoh.h5 --of GTiff -o {}geo/geo_maskTempCoh.tif'.format(dirs,dirs,dirs)

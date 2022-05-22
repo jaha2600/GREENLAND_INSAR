@@ -27,7 +27,7 @@ s1_select_ion.py -dir ./slc -sn 65.505836/67.561638 -nr 10
 #then run the stack senintel to make the run files 
 # no need to have an orbits directory as it will download automatically
 # need to have slc/ dem/ aux_dir/
-stackSentinel.py -s slc/ -d dem/glo_30.dem.wgs84 -a aux_dir/ -o orbits/ -b '65.505836 67.561638 -55.494823 -49.108829' -c 4 -p hv --param_ion ./ion_param.txt --num_connections_ion 3
+stackSentinel.py -s slc/ -d dem/glo_30.dem.wgs84 -a aux_dir/ -o orbits/ -b '65.505836 67.561638 -55.494823 -49.108829' -c 4 -p hv   --num_proc4topo 10 --param_ion ./ion_param.txt --num_connections_ion 3
 
 # move to runfiles directory
 cd run_files/
