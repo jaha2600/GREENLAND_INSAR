@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Mar 23 13:39:44 2021
-
-@author: jasmine
-"""
 
 #import required libraries
 import rasterio
@@ -39,7 +32,6 @@ mask [mask != 1] = 0
 
 mask[where_are_nans] = nan
 
-outfile = ''
 #export ndvi image
 ndwiImage = rasterio.open('/data/ndviImage2.tif','w',driver='Gtiff',
                           width=grd.width, 
@@ -49,7 +41,3 @@ ndwiImage = rasterio.open('/data/ndviImage2.tif','w',driver='Gtiff',
                           dtype='float64')
 ndwiImage.write(mask,1)
 ndwiImage.close()
-
-# make the mask 
-
-os.sys()

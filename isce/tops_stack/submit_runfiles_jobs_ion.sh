@@ -24,29 +24,29 @@
 
  i=1
  EXE_SCRIPT=$(sed -n "${i}p" run_files/run_list)
- NUM_TASKS=12
+ NUM_TASKS=24
 
  id=`sbatch --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=24:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
  echo "submitted initial job $EXE_SCRIPT as $id with $NUM_TASKS ntasks"
  i=2
  EXE_SCRIPT=$(sed -n "${i}p" run_files/run_list)
- NUM_TASKS=6
+ NUM_TASKS=12
  id2=$id
- id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=5:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
+ id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=24:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
  echo "submited job $EXE_SCRIPT as $id with ${NUM_TASKS} ntasks, which depends on job $id2"
 
  i=3
  EXE_SCRIPT=$(sed -n "${i}p" run_files/run_list)
- NUM_TASKS=6
+ NUM_TASKS=12
  id2=$id
- id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=5:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
+ id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=24:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
  echo "submited job $EXE_SCRIPT as $id with ${NUM_TASKS} ntasks, which depends on job $id2"
 
  i=4
  EXE_SCRIPT=$(sed -n "${i}p" run_files/run_list)
- NUM_TASKS=3
+ NUM_TASKS=12
  id2=$id
- id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=3:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
+ id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=24:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
  echo "submited job $EXE_SCRIPT as $id with ${NUM_TASKS} ntasks, which depends on job $id2" 
  
  i=5
@@ -60,21 +60,21 @@
  EXE_SCRIPT=$(sed -n "${i}p" run_files/run_list)
  NUM_TASKS=12
  id2=$id
- id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=12:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
+ id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=24:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
  echo "submited job $EXE_SCRIPT as $id with ${NUM_TASKS} ntasks, which depends on job $id2"
 
  i=7
  EXE_SCRIPT=$(sed -n "${i}p" run_files/run_list)
  NUM_TASKS=12
  id2=$id
- id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=15:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
+ id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=24:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
  echo "submited job $EXE_SCRIPT as $id with ${NUM_TASKS} ntasks, which depends on job $id2"
 
  i=8
  EXE_SCRIPT=$(sed -n "${i}p" run_files/run_list)
- NUM_TASKS=6
+ NUM_TASKS=12
  id2=$id
- id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=5:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
+ id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=24:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
  echo "submited job $EXE_SCRIPT as $id with ${NUM_TASKS} ntasks, which depends on job $id2" 
  
  i=9
@@ -93,9 +93,9 @@
 
  i=11
  EXE_SCRIPT=$(sed -n "${i}p" run_files/run_list)
- NUM_TASKS=6
+ NUM_TASKS=12
  id2=$id
- id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=5:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
+ id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=24:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
  echo "submited job $EXE_SCRIPT as $id with ${NUM_TASKS} ntasks, which depends on job $id2"
 
  i=12
@@ -109,7 +109,7 @@
  EXE_SCRIPT=$(sed -n "${i}p" run_files/run_list)
  NUM_TASKS=12
  id2=$id
- id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=5:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
+ id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=24:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
  echo "submited job $EXE_SCRIPT as $id with ${NUM_TASKS} ntasks, which depends on job $id2"
 
  i=14
@@ -181,6 +181,25 @@
  id2=$id
  id=`sbatch --depend=afterok:$id2 --export=NONE --partition=shas --qos=normal --account= --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=${NUM_TASKS} --time=24:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
  echo "submited job $EXE_SCRIPT as $id with ${NUM_TASKS} ntasks, which depends on job $id2"
+
+# here we need to check what files have  ion/date1_date2/ion_cal/filt.ion in as not all of them do and this causes an error.
+cd ion 
+ls -d *_* > dir_list
+mkdir missing_ion
+for f in $(cat dir_list) ; do
+    FILE=$f/ion_cal/filt.ion
+    if [ -f "$FILE" ]; then
+        echo "$FILE exists moving onto next."
+    else 
+        echo "$FILE does not exist."
+        echo "Moving $FILE to missing dir"
+        mv $f missing_ion/
+    fi
+done
+cd ..
+mv ion/missing_ion/ .
+
+
 
  i=24
  EXE_SCRIPT=$(sed -n "${i}p" run_files/run_list)

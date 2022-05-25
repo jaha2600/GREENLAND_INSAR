@@ -1,5 +1,6 @@
 
 #%%
+# prelim instructions.
 # install dev version from 
 #https://github.com/ACCESS-Cloud-Based-InSAR/dem-stitcher
 # after this then install isce2 and lxml using: mamba install -c conda-forge isce2 lxml (can switch mamba for conda)

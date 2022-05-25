@@ -24,8 +24,6 @@ import seaborn as sns
 import math
 from math import ceil  # determine correct number of subplot
 
-
-
 def getparser():
     parser = argparse.ArgumentParser(description="Extract Points from DEMs")
     parser.add_argument('dem_dir', type=str, help='DEM Directory')

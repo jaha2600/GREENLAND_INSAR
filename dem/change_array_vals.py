@@ -1,15 +1,4 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jan 28 11:44:06 2022
 
-@author: jasmine
-"""
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-
-
-directory = '/data/GREENLAND/mike_class/coreg/v2/'
 
 #import modules needed
 from osgeo import gdal
@@ -17,14 +6,11 @@ import numpy as np
 import os
 #from numpy import *
 #from pygeotools.lib import iolib, warplib
-
-
 #function to convert numpy array to geotiff.
 
 
-
+directory = '/data/GREENLAND/mike_class/coreg/v2/'
 path_list = [os.path.join(directory, fname) for fname in os.listdir(directory) if fname.endswith("2017_dif_2m_med9_bedrk_corr.tif")]
-
 grid = '/data/GREENLAND/2022/DEMS/for_summit/correct_nodata/cop_dem/dem.tif'
 
 for i, grid in enumerate(path_list):
@@ -50,17 +36,11 @@ for i, grid in enumerate(path_list):
     data_raster = dataset.GetRasterBand(1)
     #get no data value
     nodata_value = data_raster.GetNoDataValue()
-    #Convrt raster to array
+    #Convert raster to array
     dataset_array = dataset.GetRasterBand(1).ReadAsArray(0,0,cols,rows).astype(np.float)
-    
-    
     array = np.copy(dataset_array)
-    
     new_nodata_value = -32768
-    
     array[array == nodata_value] = new_nodata_value
- 
-   
     # check for NaN flag... 
     is_nans = np.isnan(np.min(array))
     

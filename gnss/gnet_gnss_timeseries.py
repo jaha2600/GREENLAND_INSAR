@@ -12,9 +12,7 @@ ds = pd.read_csv('/data/GREENLAND/2022/GNET_TIMESERIES/KELY_NEU.csv')
 # %%
 #get correct data timeframe
 df = ds.loc[6482:]
-#df = ds
-#add 
-# fitting of subbed timeseries
+# fitting of subset timeseries
 x = np.arange(ds['Time'].size) # = array([0, 1, 2, ..., 3598, 3599, 3600])
 fit = np.polyfit(x, ds['Up'], 1)
 fit_fn = np.poly1d(fit)
@@ -35,12 +33,11 @@ print('Line eq = y = {} * x + {}'.format(reg_coeff, inters))
 plt.plot(ds['Time'], ds['Up'], 'go', ms=2)
 # linear
 plt.plot(ds['Time'], fit_3(x), 'k--')
-#2
 #plt.plot(df['Time'], model2(x), 'b-')
 #plt.plot(df['Time'], model3(x), 'b-')
 #plt.plot(df['Time'], model4(x), 'b-')
 #plt.plot(df['Time'], model5(x), 'b-')
-# %%# plot full timeseires
+# %% plot full timeseires
 plt.plot(ds['Time'], ds['Up'], 'go', ms=2)
 # %%
 # plotting of full timeseries similar to mintpy style
