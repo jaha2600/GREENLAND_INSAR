@@ -32,13 +32,19 @@ def display_corr_pairs(df,color="cyan"):
 def arr_to_df(filename_list):
     df=pd.DataFrame()
     for j,f in enumerate(filename_list):
+        df2 = pd.DataFrame()
         with rio.open(f) as src:
             grid = src.read(1)
             grid_meta = src.profile
             grid_arr = np.array(grid)
 
         grid_arr = grid_arr.flatten()
-       
-        df[j] = grid_arr.tolist()
+        if j == 0:
+            df[j] = grid_arr.tolist()
+        else: 
+            df2[j] = grid_arr.tolist()
+            df.join(df2.set_index(df.index[-len(df2):]))
 
     return(df)
+
+    #df3 = df1.join(df2.set_index(df1.index[-len(df2):]))
