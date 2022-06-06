@@ -3,13 +3,17 @@ from functions import *
 import os
 
 #%%
-dirs = '/Users/jasminehansen/Documents/Colorado/PhD_Work/2022/Greenland/DATASETS/SMITH_ICESAT2/ICESat1_ICESat2_mass_change_updated_2_2021/dhdt/'
-fn = 'gris_dhdt_4326.tif'
+dirs = '/home/jasmine/JasmineShare/kanger/mintpy_summit/geo/'
+dir2 = '/home/jasmine/JasmineShare/kanger/dem/'
+fn = 'geo_velocity_m.tif'
+fn2 = 'glo_30.dem.wgs84'
 total = os.path.join(dirs,fn)
-list = [total,total]
+total2 = os.path.join(dir2,fn2)
+
+list = [total,total2]
 # %%
 df = arr_to_df(list)
-
+#%%
 display_correlation(df)
 display_corr_pairs(df)
 # %%
