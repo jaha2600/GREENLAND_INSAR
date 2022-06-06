@@ -38,5 +38,9 @@ def arr_to_df(filename_list):
             grid_arr = np.array(grid)
 
         grid_arr = grid_arr.flatten()
-        df[j] = grid_arr.tolist()
+        if j == 0:
+            df[j] = grid_arr.tolist()
+        else:
+            df = pd.concat([df, j], axis=1)
+
     return(df)
