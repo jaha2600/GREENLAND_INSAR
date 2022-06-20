@@ -1,6 +1,7 @@
 #!/bin/bash
 # written by Joel Johnson joel.johnson@colorado.edu and Jasmine Hansen jasmine.hansen@colorado.edu
-#this script installs isce on Summit
+#this script installs isce on Summit - can be edited for alpine
+
 #seperate scripts are needed because there are different gcc compilers on Summit than on Alpine
 
 #load modules you need:
