@@ -27,6 +27,8 @@ envs_dirs:
 ```
 Once you have followed the instructions in that section check that you now have `/projects/$USER/software/anaconda/` and continue with installation instructions.
 
+Place `isce2install.sh` and the file `isce2.yml` in the same directory as one another.
+
 Run the `isce2install.sh` script on an scompile node to install isce2 and associated dependencies onto summit. It also adds the correct paths to your .bashrc file
 
 USER CHANGES: user needs to add their earthdata username and password on line 44 to allow automated download of orbit files.
