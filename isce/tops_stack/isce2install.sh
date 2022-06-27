@@ -12,8 +12,8 @@ ml anaconda
 
 #create isce2 conda env w/ dependencies (5-10 min). Need if no conda isce2 env exists
 # jh added install of isce2 conda distrib and shapley
-conda create -y -n isce2 -c conda-forge python cython gdal git h5py libgdal pytest numpy fftw scipy basemap scons opencv isce2 shapely
-
+#conda create -y -n isce2 -c conda-forge python cython gdal git h5py libgdal pytest numpy fftw scipy basemap scons opencv isce2 shapely
+conda env create -y -f isce2.yml
 #activate the environment
 conda activate isce2
 
