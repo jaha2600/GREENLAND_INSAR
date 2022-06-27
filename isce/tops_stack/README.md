@@ -3,6 +3,30 @@ Scripts to build and then submit jobs for stackSentinel.py from the ISCE2 projec
 
 Main contributors: Jasmine Hansen (jasmine.hansen@colorado.edu), Joel Johnson (joel.johnson@colorado.edu), and Andy Monaghan (CU Reseach Computing)
 ## Installation
+Check if you have the following directory:
+
+`/projects/$USER/software/anaconda/`
+
+If you do - then copy the `isce2install.sh` into `/projects/$USER/software/` and execute it as detailed below.
+
+If you do NOT - then follow the following instructions taken from [this site](https://curc.readthedocs.io/en/latest/software/python.html#configuring-conda-with-condarc)
+
+Open your `.condarc` file in your favorite text editor (e.g., nano, vim):  
+> _Note: this file may not exist yet -- if not, just create a new file with this name; you can open or create file with the following command_
+
+```
+[johndoe@shas0137]$ nano ~/.condarc
+```
+
+...and paste the following four lines:
+```
+pkgs_dirs:
+  - /projects/$USER/.conda_pkgs
+envs_dirs:
+  - /projects/$USER/software/anaconda/envs
+```
+Once you have followed the instructions in that section check that you now have `/projects/$USER/software/anaconda/` and continue with installation instructions.
+
 Run the `isce2install.sh` script on an scompile node to install isce2 and associated dependencies onto summit. It also adds the correct paths to your .bashrc file
 
 USER CHANGES: user needs to add their earthdata username and password on line 44 to allow automated download of orbit files.
