@@ -77,7 +77,7 @@ def dhdt_grid_setup(dirs, fn, grid_rad_km):
 
     return alfa, end_file
 #%%
-alfa, end_file = dhdt_grid_setup(dirs,fn,0.05)
+alfa, end_file = dhdt_grid_setup(dirs,fn,0.5)
 
 # %% edit input files for input_data_gf.inc input_data_map.inc
 directory = '/Users/jasminehansen/Documents/Colorado/PhD_Work/Code/REAR/REAR-v1.0'
