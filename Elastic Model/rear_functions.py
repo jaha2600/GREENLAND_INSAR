@@ -7,8 +7,8 @@ import pandas as pd
 from math import cos, sin, asin, sqrt, radians
 #%%
 # import dhdt grid into array
-dirs = '/Users/jasminehansen/Documents/Colorado/PhD_Work/2022/Greenland/DATASETS/SMITH_ICESAT2/ICESat1_ICESat2_mass_change_updated_2_2021/dhdt/'
-fn = 'gris_dhdt_4326.tif'
+dirs = '/Users/jasminehansen/Documents/Colorado/PhD_Work/2022/Greenland/DATASETS/SMITH_ICESAT2/ICESat1_ICESat2_mass_change_updated_2_2021/FOR_REAR/1000/'
+fn = 'gris_dhdt_1000_4326.tif'
 
 #%%
 
@@ -26,7 +26,7 @@ def calc_distance(lat1, lon1, lat2, lon2):
     c = 2 * asin(sqrt(a))
     km = 6371 * c
     return km
-
+#%%
 # change calculation 
 #2.5x360/(2pix6371) = 0.0225
 def dhdt_grid_setup(dirs, fn, grid_rad_km):
@@ -77,11 +77,12 @@ def dhdt_grid_setup(dirs, fn, grid_rad_km):
 
     return alfa, end_file
 #%%
-alfa, end_file = dhdt_grid_setup(dirs,fn,2.5)
+alfa, end_file = dhdt_grid_setup(dirs,fn,0.05)
 
 # %% edit input files for input_data_gf.inc input_data_map.inc
 directory = '/Users/jasminehansen/Documents/Colorado/PhD_Work/Code/REAR/REAR-v1.0'
-#%%
+header_lines = 2
+#%% directoryabove, alfa from above function, end_file is ice load model
 def edit_rear_inputs(directory, alfa, end_file, header_lines):
     # edit input files for fortran for your own data
     # get alfa from previous function and put in fortran format
@@ -111,4 +112,32 @@ def edit_rear_inputs(directory, alfa, end_file, header_lines):
     with open(map_new_name, 'w') as f2:
         f2.writelines("%s\n" % file2 for file2 in lines2)
 
-# %%
+edit_rear_inputs(directory, alfa, end_file, header_lines)
+# %% get output from REAR and process to csv file
+def uvg2csv(file):
+    file_root = os.path.splitext(file)[0]
+    file_csv = file_root + '.csv'
+
+    #%% # change delimiters to csv
+    sed_cmd_1= "sed 's/  */ /g' {} > {}".format(file, file_csv)
+    subprocess.run(sed_cmd_1,shell=True)
+    #%%
+    #  change if using on linux as -i flag on that but -i '' -e on mac osx
+    sed_cmd_2= "sed -i ''  -e 's/ /,/g' {}".format(file_csv)
+    subprocess.run(sed_cmd_2,shell=True)
+
+    #%%
+    sed_cmd_3= "sed -i'' -e '2d' {}".format(file_csv)
+    subprocess.run(sed_cmd_3,shell=True)
+    #%%
+    #%% add column 
+    df = pd.read_csv(file_csv)
+    #%%
+    # delete bad columns
+    df = df.drop(df.columns[[0, 7, 8,9,10,11,12,13,14]], axis=1)
+    #%%
+    col_names = ['Lon','Lat','UrDOT','UthetaDOT','UlambdaDOT','NDOT']
+    df.columns = col_names
+    df['Lon360'] = df['Lon'] - 360
+    #%%
+    df.to_csv(file_csv, index=False)
