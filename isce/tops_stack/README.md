@@ -1,7 +1,7 @@
 # ISCE2 on RMACC Summit
 Scripts to build and then submit jobs for stackSentinel.py from the ISCE2 project on summit.
 
-Main contributors: Jasmine Hansen (jasmine.hansen@colorado.edu), Joel Johnson (joel.johnson@colorado.edu), and Andy Monaghan (CU Reseach Computing)
+Main contributors: Jasmine Hansen (jasmine.hansen@colorado.edu), Joel Johnson (joel.johnson@colorado.edu), Brie Corsa (Brianna.Corsa@colorado.edu), and Andy Monaghan (CU Reseach Computing)
 ## Installation
 Check if you have the following directory:
 
@@ -48,7 +48,7 @@ USER TROUBLESHOOTING: delete the orbits directory before starting another run to
 ## Batch Parallel Job Submission
 Developed with CU Reseach Computing - Andy Monaghan 
 
-STILL IN TESTING
+STILL IN TESTING - works without ionospheric correction as of 6/21
 
 This submits each run stage as a seperate sbatch submission and uses GNU parallel to speed up stages. 
 
