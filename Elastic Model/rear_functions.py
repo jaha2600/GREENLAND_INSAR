@@ -7,8 +7,8 @@ import pandas as pd
 from math import cos, sin, asin, sqrt, radians
 #%%
 # import dhdt grid into array
-dirs = '/Users/jasminehansen/Documents/Colorado/PhD_Work/2022/Greenland/DATASETS/SMITH_ICESAT2/ICESat1_ICESat2_mass_change_updated_2_2021/FOR_REAR/1000/'
-fn = 'gris_dhdt_1000_4326.tif'
+dirs = '/Users/jasminehansen/Documents/Colorado/PhD_Work/2022/Greenland/DATASETS/SMITH_ICESAT2/ICESat1_ICESat2_mass_change_updated_2_2021/FOR_REAR/100/'
+fn = 'gris_dhdt_100_4326.tif'
 
 #%%
 
@@ -77,7 +77,7 @@ def dhdt_grid_setup(dirs, fn, grid_rad_km):
 
     return alfa, end_file
 #%%
-alfa, end_file = dhdt_grid_setup(dirs,fn,0.5)
+alfa, end_file = dhdt_grid_setup(dirs,fn,0.05)
 
 # %% edit input files for input_data_gf.inc input_data_map.inc
 directory = '/Users/jasminehansen/Documents/Colorado/PhD_Work/Code/REAR/REAR-v1.0'

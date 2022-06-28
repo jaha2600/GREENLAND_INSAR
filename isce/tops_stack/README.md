@@ -1,4 +1,4 @@
-# ISCE2 on RMACC Summit
+# ISCE2 on RMACC Summit HPC
 Scripts to build and then submit jobs for stackSentinel.py from the ISCE2 project on summit.
 
 Main contributors: Jasmine Hansen (jasmine.hansen@colorado.edu), Joel Johnson (joel.johnson@colorado.edu), and Andy Monaghan (CU Reseach Computing)
