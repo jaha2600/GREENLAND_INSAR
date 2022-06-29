@@ -57,7 +57,7 @@ def get_ref_comps(mintpy_loc):
 # los = (data_e * longitude.tif)+(data_n * latitude.tif)+(data_u * height.tif)
 
 # if its a timeseries dataset then use this command in commandline to get vals of geotiffs at locations 
-# gdallocationinfo uvg_rock_kanger_4326.tif -geoloc -50.838 67.078
+# gdallocationinfo uvg_rock_kanger_4326.tif -geoloc -50.94483762 66.987418
 # then do calculation with these lon lat height values and the dataset 
 lon_loc = 
 lat_loc = 
