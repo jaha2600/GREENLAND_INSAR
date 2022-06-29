@@ -38,19 +38,19 @@ def readFile(filename):
 #%% mintpy directory
 dirs = '/home/jasmine/JasmineShare/kanger/mintpy_summit/'
 
-# change dir and check for vel geotiff.
-os.chdir(os.path.join(dirs,'geo'))
 
+def get_ref_comps(mintpy_loc):
 #%% create components from geo_geometry datda
+# change dir 
+    os.chdir(os.path.join(mintpy_loc,'geo'))
+    lat_cmd = 'save_gdal.py {}geo/geo_geometryRadar.h5 -d latitude --of GTiff -o {}geo/latitude.tif'.format(dirs,dirs,dirs)
+    subprocess.run(lat_cmd,shell=True)
 
-lat_cmd = 'save_gdal.py {}geo/geo_geometryRadar.h5 -d latitude --of GTiff -o {}geo/latitude.tif'.format(dirs,dirs,dirs)
-subprocess.run(lat_cmd,shell=True)
-
-lon_cmd = 'save_gdal.py {}geo/geo_geometryRadar.h5 -d latitude --of GTiff -o {}geo/latitude.tif'.format(dirs,dirs,dirs)
-subprocess.run(lon_cmd,shell=True)
-#%%
-hei_cmd = 'save_gdal.py {}geo/geo_geometryRadar.h5 -d height --of GTiff -o {}geo/height.tif'.format(dirs,dirs,dirs)
-subprocess.run(hei_cmd,shell=True)
+    lon_cmd = 'save_gdal.py {}geo/geo_geometryRadar.h5 -d latitude --of GTiff -o {}geo/latitude.tif'.format(dirs,dirs,dirs)
+    subprocess.run(lon_cmd,shell=True)
+    #%%
+    hei_cmd = 'save_gdal.py {}geo/geo_geometryRadar.h5 -d height --of GTiff -o {}geo/height.tif'.format(dirs,dirs,dirs)
+    subprocess.run(hei_cmd,shell=True)
 
 
 # then if its a raster dataset put it into qgis to do calculation to los:
@@ -67,4 +67,6 @@ gnss_e =
 gnss_n =
 gnss_u = 
 
-gnss_los = 
+gnss_los = (gnss_e * lon_loc)+(gnss_n * lat_loc)+(gnss_u * hei_loc)
+
+# for gnss timeseries data 
