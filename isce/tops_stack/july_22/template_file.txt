@@ -1,0 +1,32 @@
+#!/bin/bash
+## select one node
+#SBATCH --nodes=1
+## select one core to do the job
+#SBATCH --ntasks=12
+#SBATCH --cpus-per-task=2
+## set shas partition
+#SBATCH --partition=shas
+## set condo for job? 
+#SBATCH  --account ucb62_summit3
+## set walltime
+#SBATCH --time=48:00:00
+## set email to send at end of job 
+#SBATCH --mail-user=jaha2600@colorado.edu
+#SBATCH --mail-type=END
+
+
+#assigning variables from genjobs input script (COMMAND = the line in the run 16 file)
+COM=COMMAND
+
+# load modules and conda env
+ml purge
+ml gcc/10.2.0
+ml gnu_parallel/20210322
+ml anaconda
+conda activate isce2
+
+# exectute the python command for the line in run_16 file
+python $COM
+
+
+id=`sbatch  --job-name=${EXE_SCRIPT} --output=${EXE_SCRIPT}_output_%j.out --nodes=1 --ntasks=12 --cpus-per-task=2 --time=72:00:00 ./runfiles_jobs.sh | awk '{print $4}'`
